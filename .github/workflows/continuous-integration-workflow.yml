@@ -7,10 +7,12 @@ jobs:
     name: Launch 'make lint' on push
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Print message
       run: echo 'Eslint checks your code...'
     - name: Run 'make lint'
-      run: make lint
+      run: |
+        make lint
 
 
 
