@@ -1,0 +1,16 @@
+name: Launch linter on push
+# Triggers on pushes to the repository
+on: push
+
+jobs:
+  run-make-lint:
+    name: Launch 'make lint' on push
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print message
+      run: echo 'Eslint checks your code...'
+    - name: Run 'make lint'
+      run: make link
+
+
+
