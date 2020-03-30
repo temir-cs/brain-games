@@ -10,7 +10,7 @@ jobs:
     - name: Print message
       run: echo 'Eslint checks your code...'
     - name: Run 'make lint'
-      run: make link
+      run: make lint
 
 
 
