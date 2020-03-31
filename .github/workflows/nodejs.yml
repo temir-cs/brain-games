@@ -20,7 +20,7 @@ jobs:
       run: echo 'Eslint checks your code...'
       # Configure the node version used on Github-hosted runners
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: action/setup-node@v1
+      uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build
