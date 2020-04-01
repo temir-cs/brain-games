@@ -3,4 +3,4 @@
 ![](https://github.com/temir-cs/frontend-project-lvl1/workflows/Launch%20linter%20on%20push/badge.svg)
 
 # How to install
-<script id="asciicast-BBoKfOsSKLEKhXcUuVfg6VRXS" src="https://asciinema.org/a/BBoKfOsSKLEKhXcUuVfg6VRXS.js" async></script>
+[![asciicast](https://asciinema.org/a/BBoKfOsSKLEKhXcUuVfg6VRXS.svg)](https://asciinema.org/a/BBoKfOsSKLEKhXcUuVfg6VRXS)
