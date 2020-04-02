@@ -1,28 +1,49 @@
+/* eslint-disable no-unused-expressions */
 import readlineSync from 'readline-sync';
+import evenGame from './games/even-game.js';
+import calcGame from './games/calc-game.js';
 
-export const askNameAndGreet = () => {
+// Main game wrapper
+const gameWrapper = (game) => {
+  // Greet and prompt for name
+  console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
-  return name;
-};
 
-export const evenGame = (name) => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  // Set the canPlay condition and counter
+  let canPlay = true;
+  let counter = 0;
 
-  for (let i = 0; i < 3; i += 1) {
-    const randomInt = Math.floor(Math.random() * 100);
-    const isEven = randomInt % 2 === 0;
-    console.log(`Question: ${randomInt}`);
-    const answer = readlineSync.question('Your answer: ');
-    if (isEven && answer === 'yes') {
-      console.log('Correct!');
-    } else if (!isEven && answer === 'no') {
-      console.log('Correct!');
-    } else {
-      console.log(`Let's try again, ${name}!`);
-      return false;
+  // Display Game instructions
+  switch (game) {
+    case 'evenGame':
+      console.log('Answer "yes" if the number is even, otherwise answer "no".');
+      break;
+    case 'calcGame':
+      console.log('What is the result of the expression?');
+      break;
+    default:
+      break;
+  }
+
+  // Play game a selected 3 times, unless canPlay condition is false
+  while (canPlay && counter < 3) {
+    switch (game) {
+      case 'evenGame':
+        // If the answer is correct (game function returned true) - increase counter by 1
+        // Otherwise (game function returned false) - stop the game
+        evenGame() ? counter += 1 : canPlay = false;
+        break;
+      case 'calcGame':
+        calcGame() ? counter += 1 : canPlay = false;
+        break;
+      default:
+        console.log('No game was chosen!');
+        console.log(`Let me remind you your name then. Your name is ${name}.`);
+        canPlay = false;
     }
   }
-  console.log(`Congratulations, ${name}!`);
-  return true;
+  // Check whether the player can still play or not, if yes - congratulate, if no - ask to try again
+  canPlay ? console.log(`Congratulations, ${name}!`) : console.log(`Let's try again, ${name}!`);
 };
+export default gameWrapper;

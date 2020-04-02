@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { askNameAndGreet } from '../src/index.js';
+import gameWrapper from '../src/index.js';
 
-console.log('Welcome to the Brain Games!');
-askNameAndGreet();
+gameWrapper();
