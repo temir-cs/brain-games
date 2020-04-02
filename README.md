@@ -7,5 +7,7 @@
 [![asciicast](https://asciinema.org/a/KJZM0mnqw5WJy5tt1E7Uf8KFR.svg)](https://asciinema.org/a/KJZM0mnqw5WJy5tt1E7Uf8KFR)
 ## Calculator
 [![asciicast](https://asciinema.org/a/KuLFwGPaFJPhO1PaxwF2iNRDL.svg)](https://asciinema.org/a/KuLFwGPaFJPhO1PaxwF2iNRDL)
-## Greates Common divisor (GCD)
+## Greatest Common divisor (GCD)
 [![asciicast](https://asciinema.org/a/1Y2lq1tp6D7Oeo5EegyxZgn4y.svg)](https://asciinema.org/a/1Y2lq1tp6D7Oeo5EegyxZgn4y)
+## Arithmetic progression
+[![asciicast](https://asciinema.org/a/qG4rxDee2awo0M7zBxTKI4FOf.svg)](https://asciinema.org/a/qG4rxDee2awo0M7zBxTKI4FOf)

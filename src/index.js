@@ -3,6 +3,7 @@ import readlineSync from 'readline-sync';
 import evenGame from './games/even-game.js';
 import calcGame from './games/calc-game.js';
 import gcdGame from './games/gcd-game.js';
+import progressionGame from './games/progression-game.js';
 
 // Main game wrapper
 const gameWrapper = (game) => {
@@ -27,6 +28,9 @@ const gameWrapper = (game) => {
     case 'gcdGame':
       console.log('Find the greatest common divisor of given numbers.');
       break;
+    case 'progressionGame':
+      console.log('What number is missing in the progression?');
+      break;
     default:
       break;
   }
@@ -43,6 +47,9 @@ const gameWrapper = (game) => {
         break;
       case 'gcdGame':
         currentGame = gcdGame();
+        break;
+      case 'progressionGame':
+        currentGame = progressionGame();
         break;
       default:
         console.log('No game was chosen!');
