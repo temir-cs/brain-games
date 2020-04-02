@@ -5,5 +5,7 @@
 # Brain Games
 ## Identify even numbers
 [![asciicast](https://asciinema.org/a/KJZM0mnqw5WJy5tt1E7Uf8KFR.svg)](https://asciinema.org/a/KJZM0mnqw5WJy5tt1E7Uf8KFR)
-## Calculator game
+## Calculator
 [![asciicast](https://asciinema.org/a/KuLFwGPaFJPhO1PaxwF2iNRDL.svg)](https://asciinema.org/a/KuLFwGPaFJPhO1PaxwF2iNRDL)
+## Greates Common divisor (GCD)
+[![asciicast](https://asciinema.org/a/1Y2lq1tp6D7Oeo5EegyxZgn4y.svg)](https://asciinema.org/a/1Y2lq1tp6D7Oeo5EegyxZgn4y)
