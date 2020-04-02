@@ -11,3 +11,5 @@
 [![asciicast](https://asciinema.org/a/1Y2lq1tp6D7Oeo5EegyxZgn4y.svg)](https://asciinema.org/a/1Y2lq1tp6D7Oeo5EegyxZgn4y)
 ## Arithmetic progression
 [![asciicast](https://asciinema.org/a/qG4rxDee2awo0M7zBxTKI4FOf.svg)](https://asciinema.org/a/qG4rxDee2awo0M7zBxTKI4FOf)
+## Prime number
+[![asciicast](https://asciinema.org/a/25RLOfKENg8MabQi2w6JwxNLd.svg)](https://asciinema.org/a/25RLOfKENg8MabQi2w6JwxNLd)

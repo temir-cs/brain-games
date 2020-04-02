@@ -4,6 +4,7 @@ import evenGame from './games/even-game.js';
 import calcGame from './games/calc-game.js';
 import gcdGame from './games/gcd-game.js';
 import progressionGame from './games/progression-game.js';
+import primeGame from './games/prime-game.js';
 
 // Main game wrapper
 const gameWrapper = (game) => {
@@ -31,6 +32,9 @@ const gameWrapper = (game) => {
     case 'progressionGame':
       console.log('What number is missing in the progression?');
       break;
+    case 'primeGame':
+      console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+      break;
     default:
       break;
   }
@@ -50,6 +54,9 @@ const gameWrapper = (game) => {
         break;
       case 'progressionGame':
         currentGame = progressionGame();
+        break;
+      case 'primeGame':
+        currentGame = primeGame();
         break;
       default:
         console.log('No game was chosen!');
