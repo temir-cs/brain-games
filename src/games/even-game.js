@@ -3,7 +3,7 @@ import readlineSync from 'readline-sync';
 // 'Identify even numbers' game
 
 const evenGame = () => {
-  // Get a random integer
+  // Get a random integer and check whether it's even or not
   const randomInt = Math.floor(Math.random() * 100);
   const isEven = randomInt % 2 === 0;
 

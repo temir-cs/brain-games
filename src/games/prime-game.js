@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-// 'Identify even numbers' game
+// 'Prime number' game
 
 const primeGame = () => {
   // Get a random integer and find it middle boundary for 'for' loop
