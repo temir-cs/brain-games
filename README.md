@@ -4,12 +4,12 @@
 
 # Brain Games
 ## Identify even numbers
-[![asciicast](https://asciinema.org/a/KJZM0mnqw5WJy5tt1E7Uf8KFR.svg)](https://asciinema.org/a/KJZM0mnqw5WJy5tt1E7Uf8KFR)
+[![asciicast](https://asciinema.org/a/b4DeKrIm0k0sf2Snoq9mzDxsp.svg)](https://asciinema.org/a/b4DeKrIm0k0sf2Snoq9mzDxsp)
 ## Calculator
-[![asciicast](https://asciinema.org/a/KuLFwGPaFJPhO1PaxwF2iNRDL.svg)](https://asciinema.org/a/KuLFwGPaFJPhO1PaxwF2iNRDL)
+[![asciicast](https://asciinema.org/a/Q7Ja7L6VP6H0sCAGsWJ9iO2gi.svg)](https://asciinema.org/a/Q7Ja7L6VP6H0sCAGsWJ9iO2gi)
 ## Greatest Common divisor (GCD)
-[![asciicast](https://asciinema.org/a/1Y2lq1tp6D7Oeo5EegyxZgn4y.svg)](https://asciinema.org/a/1Y2lq1tp6D7Oeo5EegyxZgn4y)
+[![asciicast](https://asciinema.org/a/oBSzOLZyqAQWPT4SrGa6kIPbz.svg)](https://asciinema.org/a/oBSzOLZyqAQWPT4SrGa6kIPbz)
 ## Arithmetic progression
-[![asciicast](https://asciinema.org/a/qG4rxDee2awo0M7zBxTKI4FOf.svg)](https://asciinema.org/a/qG4rxDee2awo0M7zBxTKI4FOf)
+[![asciicast](https://asciinema.org/a/c37BWFuHCD2JCFm2JXAWvUUmd.svg)](https://asciinema.org/a/c37BWFuHCD2JCFm2JXAWvUUmd)
 ## Prime number
-[![asciicast](https://asciinema.org/a/25RLOfKENg8MabQi2w6JwxNLd.svg)](https://asciinema.org/a/25RLOfKENg8MabQi2w6JwxNLd)
+[![asciicast](https://asciinema.org/a/G8tehcVLJmPsKLOJ7Wmb9I4Pu.svg)](https://asciinema.org/a/G8tehcVLJmPsKLOJ7Wmb9I4Pu)
