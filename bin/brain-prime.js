@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import gameWrapper from '../src/index.js';
+import playPrimeGame from '../src/games/prime-game.js';
 
-gameWrapper('primeGame');
+playPrimeGame();

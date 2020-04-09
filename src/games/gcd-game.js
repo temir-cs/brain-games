@@ -1,8 +1,9 @@
-import readlineSync from 'readline-sync';
+import { playGame } from '../index.js';
 
 // 'Greatest common divisor' game
 
-const gcdGame = () => {
+// Generate data for 1 game round
+const getRoundData = () => {
   // Define 2 random numbers
   const randInt1 = Math.floor(Math.random() * 100);
   const randInt2 = Math.floor(Math.random() * 100);
@@ -13,8 +14,6 @@ const gcdGame = () => {
   const middle = Math.floor(minNum / 2);
   // Define gcd, set to 0
   let gcd = 0;
-
-  console.log(`Question: ${randInt1} ${randInt2}`);
 
   // if larger number divided by smaller has 0 divisor - gcd is a smaller number
   if (maxNum % minNum === 0) {
@@ -28,17 +27,14 @@ const gcdGame = () => {
     }
   }
 
-  // Prompt user for input
-  const answer = readlineSync.question('Your answer: ');
-  if (Number(answer) === gcd) {
-    // if answer is correct - continue
-    console.log('Correct!');
-  } else {
-    // if answer is incorrect - stop the game (return false)
-    console.log(`"${answer}" is wrong answer ;(. Correct answer was "${gcd}".`);
-    return false;
-  }
-  return true;
+  // Define game question and correct answer for the current round
+  const gameQuestion = `${randInt1} ${randInt2}`;
+  const correctAnswer = gcd;
+  return [gameQuestion, correctAnswer];
 };
 
-export default gcdGame;
+const playGcdGame = () => {
+  const rules = 'Find the greatest common divisor of given numbers.';
+  playGame(rules, getRoundData);
+};
+export default playGcdGame;

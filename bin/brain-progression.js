@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import gameWrapper from '../src/index.js';
+import playProgressionGame from '../src/games/progression-game.js';
 
-gameWrapper('progressionGame');
+playProgressionGame();

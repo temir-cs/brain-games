@@ -1,45 +1,45 @@
-import readlineSync from 'readline-sync';
+import { playGame } from '../index.js';
 
 // 'Calculator' game
 
-const calcGame = () => {
+// Generate data for 1 game round
+const getRoundData = () => {
   // Get 2 random integers and 1 random operation selector
   const randInt1 = Math.floor(Math.random() * 100);
   const randInt2 = Math.floor(Math.random() * 100);
   const operSelector = Math.floor(Math.random() * 3);
-  let result = 0;
+  // Define game question and correct answer for the current round
+  let gameQuestion;
+  let correctAnswer;
 
+  // Set game question and correct answer based on selected operator
   switch (operSelector) {
     case 0:
       // Addition (+)
-      console.log(`Question: ${randInt1} + ${randInt2}`);
-      result = randInt1 + randInt2;
+      gameQuestion = `${randInt1} + ${randInt2}`;
+      correctAnswer = randInt1 + randInt2;
       break;
     case 1:
       // Subtraction (-)
-      console.log(`Question: ${randInt1} - ${randInt2}`);
-      result = randInt1 - randInt2;
+      gameQuestion = `${randInt1} - ${randInt2}`;
+      correctAnswer = randInt1 - randInt2;
       break;
     case 2:
       // Multiplication (*)
-      console.log(`Question: ${randInt1} * ${randInt2}`);
-      result = randInt1 * randInt2;
+      gameQuestion = `${randInt1} * ${randInt2}`;
+      correctAnswer = randInt1 * randInt2;
       break;
     default:
       break;
   }
 
-  // Prompt user for answer
-  const answer = readlineSync.question('Your answer: ');
-
-  // Convert the input to number and compare
-  if (Number(answer) === result) {
-    console.log('Correct!');
-  } else {
-    // If there is a wrong answer, stop the game
-    console.log(`"${answer}" is wrong answer ;(. Correct answer was "${result}".`);
-    return false;
-  }
-  return true;
+  // Return game question and correct answer as array
+  return [gameQuestion, correctAnswer];
 };
-export default calcGame;
+
+// Set Rules and play the game
+const playCalcGame = () => {
+  const rules = 'What is the result of the expression?';
+  playGame(rules, getRoundData);
+};
+export default playCalcGame;

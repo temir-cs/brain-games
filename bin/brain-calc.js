@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import gameWrapper from '../src/index.js';
+import playCalcGame from '../src/games/calc-game.js';
 
-gameWrapper('calcGame');
+playCalcGame();

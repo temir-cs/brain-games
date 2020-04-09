@@ -1,73 +1,69 @@
 /* eslint-disable no-unused-expressions */
 import readlineSync from 'readline-sync';
-import evenGame from './games/even-game.js';
-import calcGame from './games/calc-game.js';
-import gcdGame from './games/gcd-game.js';
-import progressionGame from './games/progression-game.js';
-import primeGame from './games/prime-game.js';
 
-// Main game wrapper
-const gameWrapper = (game) => {
-  // Greet and prompt for name
+// Gets user answer and converts its to program-readable type
+export const getUserAnswer = () => {
+  // Prompt a player for answer
+  const input = readlineSync.question('Your answer: ');
+
+  // Yes answers could  be 'Yes' 'yes' 'Y' 'y'
+  const yesAnswers = 'Yesyes';
+
+  // No answers could be 'No' 'no' 'N' 'n'
+  const noAnswers = 'Nono';
+
+  // if answer is Yes/yes/Y/y -> make it 'yes'
+  if (yesAnswers.includes(input)) return 'yes';
+
+  // if answer is No/no/N/n -> make it 'no'
+  if (noAnswers.includes(input)) return 'no';
+
+  // if answer is number -> convert a string to number
+  if (!Number.isNaN(Number(input))) return Number(input);
+
+  // otherwise -> just return user input
+  return input;
+};
+
+export const playRound = (gameQuestion, correctAnswer) => {
+  // Display a game question
+  console.log(`Question: ${gameQuestion}`);
+
+  // Get user answer
+  const userAnswer = getUserAnswer();
+
+  if (userAnswer === correctAnswer) {
+    // if answer is correct -> show success message
+    console.log('Correct!');
+  } else {
+    // if answer is incorrect -> show fail message and stop
+    console.log(`"${userAnswer}" was wrong answer, correct answer was "${correctAnswer}".`);
+    return false;
+  }
+  return true;
+};
+
+export const playGame = (rules, getRoundData) => {
+  // Greet player and get playerName
   console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
+  const playerName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${playerName}!`);
 
-  // Set the canPlay condition and counter
+  // Display game rules
+  const gameRules = rules;
+  console.log(gameRules);
+
+  // Set canPlay condition and counter
   let canPlay = true;
   let counter = 0;
-  let currentGame;
 
-  // Display Game instructions
-  switch (game) {
-    case 'evenGame':
-      console.log('Answer "yes" if the number is even, otherwise answer "no".');
-      break;
-    case 'calcGame':
-      console.log('What is the result of the expression?');
-      break;
-    case 'gcdGame':
-      console.log('Find the greatest common divisor of given numbers.');
-      break;
-    case 'progressionGame':
-      console.log('What number is missing in the progression?');
-      break;
-    case 'primeGame':
-      console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-      break;
-    default:
-      break;
-  }
-
-  // Play game a selected 3 times, unless canPlay condition is false
+  // Play 3 rounds
   while (canPlay && counter < 3) {
-    // Decide which game to launch
-    switch (game) {
-      case 'evenGame':
-        currentGame = evenGame();
-        break;
-      case 'calcGame':
-        currentGame = calcGame();
-        break;
-      case 'gcdGame':
-        currentGame = gcdGame();
-        break;
-      case 'progressionGame':
-        currentGame = progressionGame();
-        break;
-      case 'primeGame':
-        currentGame = primeGame();
-        break;
-      default:
-        console.log('No game was chosen!');
-        console.log(`Let me remind you your name then. Your name is ${name}.`);
-        canPlay = false;
-    }
-    // If the answer is correct (game function returned true) - increase counter and continue game
-    // Otherwise (game function returned false) - stop the game
-    currentGame ? counter += 1 : canPlay = false;
+    // Get generated game question and correct answer
+    const [gameQuestion, correctAnswer] = getRoundData();
+    canPlay = playRound(gameQuestion, correctAnswer);
+    counter += 1;
   }
-  // Check whether the player can still play or not, if yes - congratulate, if no - ask to try again
-  canPlay ? console.log(`Congratulations, ${name}!`) : console.log(`Let's try again, ${name}!`);
+  // Check the winning condition
+  canPlay ? console.log(`Congratulations, ${playerName}!`) : console.log(`Let's try again, ${playerName}!`);
 };
-export default gameWrapper;

@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import gameWrapper from '../src/index.js';
+import playGcdGame from '../src/games/gcd-game.js';
 
-gameWrapper('gcdGame');
+playGcdGame();

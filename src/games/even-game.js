@@ -1,26 +1,24 @@
-import readlineSync from 'readline-sync';
+import { playGame } from '../index.js';
 
-// 'Identify even numbers' game
+// 'Even numbers' game
 
-const evenGame = () => {
-  // Get a random integer and check whether it's even or not
+// Generate data for 1 game round
+const getRoundData = () => {
+  // Get a random integer
   const randomInt = Math.floor(Math.random() * 100);
+  // Form a game question
+  const gameQuestion = randomInt;
+  // Get correct answer - is number even or not
   const isEven = randomInt % 2 === 0;
+  const correctAnswer = isEven ? 'yes' : 'no';
 
-  // Display question
-  console.log(`Question: ${randomInt}`);
-
-  // Prompt user for answer
-  const answer = readlineSync.question('Your answer: ');
-
-  if (isEven && answer === 'yes') {
-    console.log('Correct!');
-  } else if (!isEven && answer === 'no') {
-    console.log('Correct!');
-  } else {
-    // If there is a wrong answer - stop the game
-    return false;
-  }
-  return true;
+  // Return game question and correct answer as array
+  return [gameQuestion, correctAnswer];
 };
-export default evenGame;
+
+const playEvenGame = () => {
+  // Set Rules and play the game
+  const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+  playGame(rules, getRoundData);
+};
+export default playEvenGame;

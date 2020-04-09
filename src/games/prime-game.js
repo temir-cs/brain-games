@@ -1,8 +1,9 @@
-import readlineSync from 'readline-sync';
+import { playGame } from '../index.js';
 
 // 'Prime number' game
 
-const primeGame = () => {
+// Generate data for 1 game round
+const getRoundData = () => {
   // Get a random integer and find it middle boundary for 'for' loop
   const randomInt = Math.floor(Math.random() * 100);
   const middle = Math.floor(randomInt / 2);
@@ -23,21 +24,16 @@ const primeGame = () => {
     }
   }
 
+  // Form a game question and correct answer
+  const gameQuestion = `${randomInt}`;
+  const correctAnswer = isPrime ? 'yes' : 'no';
 
-  // Display question
-  console.log(`Question: ${randomInt}`);
-
-  // Prompt user for answer
-  const answer = readlineSync.question('Your answer: ');
-
-  if (isPrime === true && answer === 'yes') {
-    console.log('Correct!');
-  } else if (isPrime === false && answer === 'no') {
-    console.log('Correct!');
-  } else {
-    // If there is a wrong answer - stop the game
-    return false;
-  }
-  return true;
+  // Return game question and correct answer as array
+  return [gameQuestion, correctAnswer];
 };
-export default primeGame;
+
+const playPrimeGame = () => {
+  const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  playGame(rules, getRoundData);
+};
+export default playPrimeGame;

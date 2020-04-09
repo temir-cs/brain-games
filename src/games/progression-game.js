@@ -1,8 +1,9 @@
-import readlineSync from 'readline-sync';
+import { playGame } from '../index.js';
 
-// Arithmetical progression game
+// 'Arithmetical progression' game
 
-const progressionGame = () => {
+// Generate data for 1 game round
+const getRoundData = () => {
   // Define the first number and accumulator
   const firstNum = Math.floor(Math.random() * 100);
   const acc = Math.floor(Math.random() * 25);
@@ -21,21 +22,19 @@ const progressionGame = () => {
   // Save the number under that index
   const hiddenNum = sequence[indexToHide];
 
-  // Insert '..' instead of that number and display question
+  // Insert '..' instead of that number and form a game question
   sequence.splice(indexToHide, 1, '..');
-  console.log(`Question: ${sequence.join(' ')}`);
+  const gameQuestion = `${sequence.join(' ')}`;
 
-  // Promopt user for answer
-  const answer = readlineSync.question('Your answer: ');
+  // Get a correct answer for current round
+  const correctAnswer = hiddenNum;
 
-  // Check if answer is correct
-  if (Number(answer) === hiddenNum) {
-    console.log('Correct!');
-  } else {
-    console.log(`"${answer}" is wrong answer ;(. Correct answer was "${hiddenNum}".`);
-    return false;
-  }
-  return true;
+  // Return game question and correct answer as array
+  return [gameQuestion, correctAnswer];
 };
 
-export default progressionGame;
+const playProgressionGame = () => {
+  const rules = 'What number is missing in the progression?';
+  playGame(rules, getRoundData);
+};
+export default playProgressionGame;
