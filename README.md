@@ -1,6 +1,7 @@
-<a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
+<a href="https://codeclimate.com/github/temir-cs/frontend-project-lvl1"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" target="_blank"/></a>
 
-![](https://github.com/temir-cs/frontend-project-lvl1/workflows/Launch%20linter%20on%20push/badge.svg)
+<a href="https://github.com/temir-cs/frontend-project-lvl1/actions" target="_blank"><img src="https://github.com/temir-cs/frontend-project-lvl1/workflows/Launch%20linter%20on%20push/badge.svg"/></a>
+
 
 # Brain Games
 ## Identify even numbers
