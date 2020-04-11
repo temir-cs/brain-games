@@ -1,16 +1,22 @@
-import { playGame } from '../index.js';
+import { runEngine } from '../index.js';
+import getRandomInteger from '../utils.js';
 
 // 'Even numbers' game
+
+// Game rules
+const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+// Check if a number is even. Return 'true' if a number is even or 'false' is its not
+export const isEven = (number) => (number % 2 === 0 ? 'yes' : 'no');
 
 // Generate data for 1 game round
 const getRoundData = () => {
   // Get a random integer
-  const randomInt = Math.floor(Math.random() * 100);
+  const randomInt = getRandomInteger(100);
   // Form a game question
-  const gameQuestion = randomInt;
+  const gameQuestion = String(randomInt);
   // Get correct answer - is number even or not
-  const isEven = randomInt % 2 === 0;
-  const correctAnswer = isEven ? 'yes' : 'no';
+  const correctAnswer = isEven(randomInt);
 
   // Return game question and correct answer as array
   return [gameQuestion, correctAnswer];
@@ -18,7 +24,6 @@ const getRoundData = () => {
 
 const playEvenGame = () => {
   // Set Rules and play the game
-  const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
-  playGame(rules, getRoundData);
+  runEngine(rules, getRoundData);
 };
 export default playEvenGame;

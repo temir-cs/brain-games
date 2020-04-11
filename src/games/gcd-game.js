@@ -1,12 +1,16 @@
-import { playGame } from '../index.js';
+import { runEngine } from '../index.js';
+import getRandomInteger from '../utils.js';
 
 // 'Greatest common divisor' game
+
+// Game rules
+const rules = 'Find the greatest common divisor of given numbers.';
 
 // Generate data for 1 game round
 const getRoundData = () => {
   // Define 2 random numbers
-  const randInt1 = Math.floor(Math.random() * 100);
-  const randInt2 = Math.floor(Math.random() * 100);
+  const randInt1 = getRandomInteger(100);
+  const randInt2 = getRandomInteger(100);
   // Identify smaller and larger number
   const minNum = Math.min(randInt1, randInt2);
   const maxNum = Math.max(randInt1, randInt2);
@@ -34,7 +38,6 @@ const getRoundData = () => {
 };
 
 const playGcdGame = () => {
-  const rules = 'Find the greatest common divisor of given numbers.';
-  playGame(rules, getRoundData);
+  runEngine(rules, getRoundData);
 };
 export default playGcdGame;

@@ -6,44 +6,14 @@ export const getUserAnswer = () => {
   // Prompt a player for answer
   const input = readlineSync.question('Your answer: ');
 
-  // Yes answers could  be 'Yes' 'yes' 'Y' 'y'
-  const yesAnswers = 'Yesyes';
-
-  // No answers could be 'No' 'no' 'N' 'n'
-  const noAnswers = 'Nono';
-
-  // if answer is Yes/yes/Y/y -> make it 'yes'
-  if (yesAnswers.includes(input)) return 'yes';
-
-  // if answer is No/no/N/n -> make it 'no'
-  if (noAnswers.includes(input)) return 'no';
-
   // if answer is number -> convert a string to number
   if (!Number.isNaN(Number(input))) return Number(input);
 
-  // otherwise -> just return user input
-  return input;
+  // otherwise -> just return user input converted to lowercase
+  return input.toLowerCase();
 };
 
-export const playRound = (gameQuestion, correctAnswer) => {
-  // Display a game question
-  console.log(`Question: ${gameQuestion}`);
-
-  // Get user answer
-  const userAnswer = getUserAnswer();
-
-  if (userAnswer === correctAnswer) {
-    // if answer is correct -> show success message
-    console.log('Correct!');
-  } else {
-    // if answer is incorrect -> show fail message and stop
-    console.log(`"${userAnswer}" was wrong answer, correct answer was "${correctAnswer}".`);
-    return false;
-  }
-  return true;
-};
-
-export const playGame = (rules, getRoundData) => {
+export const runEngine = (rules, getRoundData) => {
   // Greet player and get playerName
   console.log('Welcome to the Brain Games!');
   const playerName = readlineSync.question('May I have your name? ');
@@ -59,9 +29,23 @@ export const playGame = (rules, getRoundData) => {
 
   // Play 3 rounds
   while (canPlay && counter < 3) {
-    // Get generated game question and correct answer
+    // Get generated game question and correct answer for a current game
     const [gameQuestion, correctAnswer] = getRoundData();
-    canPlay = playRound(gameQuestion, correctAnswer);
+
+    // Display a game question
+    console.log(`Question: ${gameQuestion}`);
+
+    // Get user answer
+    const userAnswer = getUserAnswer();
+
+    if (userAnswer === correctAnswer) {
+      // if answer is correct -> show success message
+      console.log('Correct!');
+    } else {
+      // if answer is incorrect -> show fail message and stop
+      console.log(`"${userAnswer}" was wrong answer, correct answer was "${correctAnswer}".`);
+      canPlay = false;
+    }
     counter += 1;
   }
   // Check the winning condition

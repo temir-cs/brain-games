@@ -1,18 +1,22 @@
-import { playGame } from '../index.js';
+import { runEngine } from '../index.js';
+import getRandomInteger from '../utils.js';
 
 // 'Calculator' game
+
+// Game rules
+const rules = 'What is the result of the expression?';
 
 // Generate data for 1 game round
 const getRoundData = () => {
   // Get 2 random integers and 1 random operation selector
-  const randInt1 = Math.floor(Math.random() * 100);
-  const randInt2 = Math.floor(Math.random() * 100);
-  const operSelector = Math.floor(Math.random() * 3);
+  const randInt1 = getRandomInteger(100);
+  const randInt2 = getRandomInteger(100);
+  const operSelector = getRandomInteger(3);
   // Define game question and correct answer for the current round
   let gameQuestion;
   let correctAnswer;
 
-  // Set game question and correct answer based on selected operator
+  // Form a game question and correct answer based on selected operator
   switch (operSelector) {
     case 0:
       // Addition (+)
@@ -39,7 +43,6 @@ const getRoundData = () => {
 
 // Set Rules and play the game
 const playCalcGame = () => {
-  const rules = 'What is the result of the expression?';
-  playGame(rules, getRoundData);
+  runEngine(rules, getRoundData);
 };
 export default playCalcGame;
