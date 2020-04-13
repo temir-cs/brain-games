@@ -10,7 +10,7 @@ const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const isPrime = (number) => {
   const middle = Math.floor(number / 2);
   // Check if a number is 1. If it is - then its NOT prime
-  if (number === 1) {
+  if (number <= 1) {
     return 'no';
   }
   // Iterate trough all smaller numbers beginning from 2 until middle boundary
