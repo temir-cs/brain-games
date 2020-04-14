@@ -13,15 +13,15 @@ export const getUserAnswer = () => {
   return input.toLowerCase();
 };
 
-export const runEngine = (rules, getRoundData) => {
+export const runEngine = (task, getRoundData) => {
   // Greet player and get playerName
   console.log('Welcome to the Brain Games!');
   const playerName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${playerName}!`);
 
-  // Display game rules
-  const gameRules = rules;
-  console.log(gameRules);
+  // Display game task
+  const gameTask = task;
+  console.log(gameTask);
 
   // Set canPlay condition and counter
   let canPlay = true;
