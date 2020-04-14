@@ -35,7 +35,7 @@ const getRoundData = () => {
   // Return game question and correct answer as array
   return [question, correctAnswer];
 };
-// Set game task and play the game
+// Start the game engine and play the game
 export default () => {
   runEngine(task, getRoundData);
 };

@@ -6,7 +6,7 @@ import getRandomInteger from '../utils.js';
 // Game task
 const task = 'What is the result of the expression?';
 
-// Perform calculations
+// Perform arithmetic calculations with the given 2 numbers and operator
 const doCalc = (number1, number2, operator) => {
   let result = 0;
   // Get a correct answer based on selected operator
@@ -45,7 +45,7 @@ const getRoundData = () => {
   return [question, correctAnswer];
 };
 
-// Set game task and play the game
+// Start the game engine and play the game
 export default () => {
   runEngine(task, getRoundData);
 };

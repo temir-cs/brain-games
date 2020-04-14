@@ -23,6 +23,6 @@ const getRoundData = () => {
 };
 
 export default () => {
-  // Set game task and play the game
+  // Start the game engine and play the game
   runEngine(task, getRoundData);
 };

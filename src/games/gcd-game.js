@@ -43,7 +43,7 @@ const getRoundData = () => {
   const correctAnswer = gcd;
   return [question, correctAnswer];
 };
-// Set fame task and play the game
+// Start the game engine and play the game
 export default () => {
   runEngine(task, getRoundData);
 };
