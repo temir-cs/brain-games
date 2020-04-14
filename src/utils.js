@@ -1,3 +1,7 @@
-// Get a random integer from 0 to a specified range
-const getRandomInteger = (range) => Math.floor(Math.random() * range);
+// Get a random integer between specified values
+const getRandomInteger = (min = 0, max) => {
+  const minNumber = Math.ceil(min);
+  const maxNumber = Math.floor(max);
+  return Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
+};
 export default getRandomInteger;

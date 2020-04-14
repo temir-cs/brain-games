@@ -30,10 +30,10 @@ export const runEngine = (rules, getRoundData) => {
   // Play 3 rounds
   while (canPlay && counter < 3) {
     // Get generated game question and correct answer for a current game
-    const [gameQuestion, correctAnswer] = getRoundData();
+    const [question, correctAnswer] = getRoundData();
 
     // Display a game question
-    console.log(`Question: ${gameQuestion}`);
+    console.log(`Question: ${question}`);
 
     // Get user answer
     const userAnswer = getUserAnswer();

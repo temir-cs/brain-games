@@ -3,14 +3,14 @@ import getRandomInteger from '../utils.js';
 
 // 'Arithmetical progression' game
 
-// Game rules
-const rules = 'What number is missing in the progression?';
+// Game task
+const task = 'What number is missing in the progression?';
 
 // Generate data for 1 game round
 const getRoundData = () => {
   // Define the first number and accumulator
-  const firstNum = getRandomInteger(100);
-  const acc = getRandomInteger(25);
+  const firstNum = getRandomInteger(0, 100);
+  const acc = getRandomInteger(0, 25);
 
   // Insert the first number into the sequence array
   const sequence = [firstNum];
@@ -28,16 +28,15 @@ const getRoundData = () => {
 
   // Insert '..' instead of that number and form a game question
   sequence.splice(indexToHide, 1, '..');
-  const gameQuestion = sequence.join(' ');
+  const question = sequence.join(' ');
 
   // Get a correct answer for current round
   const correctAnswer = hiddenNum;
 
   // Return game question and correct answer as array
-  return [gameQuestion, correctAnswer];
+  return [question, correctAnswer];
 };
-
-const playProgressionGame = () => {
-  runEngine(rules, getRoundData);
+// Set game task and play the game
+export default () => {
+  runEngine(task, getRoundData);
 };
-export default playProgressionGame;

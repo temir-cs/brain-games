@@ -3,46 +3,49 @@ import getRandomInteger from '../utils.js';
 
 // 'Calculator' game
 
-// Game rules
-const rules = 'What is the result of the expression?';
+// Game task
+const task = 'What is the result of the expression?';
 
-// Generate data for 1 game round
-const getRoundData = () => {
-  // Get 2 random integers and 1 random operation selector
-  const randInt1 = getRandomInteger(100);
-  const randInt2 = getRandomInteger(100);
-  const operSelector = getRandomInteger(3);
-  // Define game question and correct answer for the current round
-  let gameQuestion;
-  let correctAnswer;
-
-  // Form a game question and correct answer based on selected operator
-  switch (operSelector) {
-    case 0:
+// Perform calculations
+const doCalc = (number1, number2, operator) => {
+  let result = 0;
+  // Get a correct answer based on selected operator
+  switch (operator) {
+    case '+':
       // Addition (+)
-      gameQuestion = `${randInt1} + ${randInt2}`;
-      correctAnswer = randInt1 + randInt2;
+      result = number1 + number2;
       break;
-    case 1:
+    case '-':
       // Subtraction (-)
-      gameQuestion = `${randInt1} - ${randInt2}`;
-      correctAnswer = randInt1 - randInt2;
+      result = number1 - number2;
       break;
-    case 2:
+    case '*':
       // Multiplication (*)
-      gameQuestion = `${randInt1} * ${randInt2}`;
-      correctAnswer = randInt1 * randInt2;
+      result = number1 * number2;
       break;
     default:
       break;
   }
+  return result;
+};
+
+// Generate data for 1 game round
+const getRoundData = () => {
+  // Get 2 random integers and randomly select and operator
+  const number1 = getRandomInteger(0, 100);
+  const number2 = getRandomInteger(0, 100);
+  const operators = '+-*';
+  const operator = operators[getRandomInteger(0, operators.length)];
+
+  // Define game question and correct answer for the current round
+  const question = `${number1} ${operator} ${number2}`;
+  const correctAnswer = doCalc(number1, number2, operator);
 
   // Return game question and correct answer as array
-  return [gameQuestion, correctAnswer];
+  return [question, correctAnswer];
 };
 
-// Set Rules and play the game
-const playCalcGame = () => {
-  runEngine(rules, getRoundData);
+// Set game task and play the game
+export default () => {
+  runEngine(task, getRoundData);
 };
-export default playCalcGame;
