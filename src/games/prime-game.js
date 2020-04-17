@@ -8,11 +8,12 @@ const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 // Check if a number is prime
 const isPrime = (number) => {
-  const middle = number / 2;
   // Check if a number is 1, 0 or negative. If it is one of these - then its NOT prime
   if (number <= 1) {
     return false;
   }
+  // Get a middle boundary for 'for' loop
+  const middle = number / 2;
   // Iterate trough all smaller numbers beginning from 2 until middle boundary
   for (let i = 2; i <= middle; i += 1) {
     // if the given number has any divisor other than 1 and itself - then it's NOT prime

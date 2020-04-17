@@ -6,32 +6,38 @@ import getRandomInteger from '../utils.js';
 // Game task
 const task = 'What number is missing in the progression?';
 
-// Generate data for 1 game round
-const getRoundData = () => {
-  // Define the first number and accumulator
-  const firstNum = getRandomInteger(0, 100);
-  const acc = getRandomInteger(0, 25);
-
-  // Insert the first number into the sequence array
-  const sequence = [firstNum];
-
+const getProgressionSequence = (first, acc) => {
+  // Initiate the sequence and insert the first number into the sequence array
+  const sequence = [first];
   // Build a progression sequence
   for (let i = 0; i < 9; i += 1) {
     sequence.push(sequence[i] + acc);
   }
+  return sequence;
+};
 
+// Insert '..' instead of the number under the given index
+const hideNumber = (sequence, hidden) => {
+  sequence.splice(hidden, 1, '..');
+  return sequence;
+};
+
+// Generate data for 1 game round
+const getRoundData = () => {
+  // Define the first number and accumulator
+  const first = getRandomInteger(0, 100);
+  const acc = getRandomInteger(0, 25);
   // Randomly choose index to hide (from 0 to 9)
-  const indexToHide = getRandomInteger(10);
+  const hiddenIndex = getRandomInteger(0, 9);
 
-  // Save the number under that index
-  const hiddenNum = sequence[indexToHide];
+  // Build a progression sequence
+  const sequence = getProgressionSequence(first, acc);
+
+  // Get a correct answer and a game question
+  const correctAnswer = String(sequence[hiddenIndex]);
 
   // Insert '..' instead of that number and form a game question
-  sequence.splice(indexToHide, 1, '..');
-  const question = sequence.join(' ');
-
-  // Get a correct answer for current round
-  const correctAnswer = hiddenNum;
+  const question = hideNumber(sequence, hiddenIndex).join(' ');
 
   // Return game question and correct answer as array
   return [question, correctAnswer];

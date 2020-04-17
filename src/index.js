@@ -6,10 +6,7 @@ export const getUserAnswer = () => {
   // Prompt a player for answer
   const input = readlineSync.question('Your answer: ');
 
-  // if answer is number -> convert a string to number
-  if (!Number.isNaN(Number(input))) return Number(input);
-
-  // otherwise -> just return user input converted to lowercase
+  // return user input converted to lowercase
   return input.toLowerCase();
 };
 
@@ -23,12 +20,8 @@ export const runEngine = (task, getRoundData) => {
   const gameTask = task;
   console.log(gameTask);
 
-  // Set canPlay condition and counter
-  let canPlay = true;
-  let counter = 0;
-
-  // Play 3 rounds
-  while (canPlay && counter < 3) {
+  // Play 3 rounds unless user does a mistake
+  for (let i = 0; i < 3; i += 1) {
     // Get generated game question and correct answer for a current game
     const [question, correctAnswer] = getRoundData();
 
@@ -44,10 +37,8 @@ export const runEngine = (task, getRoundData) => {
     } else {
       // if answer is incorrect -> show fail message and stop
       console.log(`"${userAnswer}" was wrong answer, correct answer was "${correctAnswer}".`);
-      canPlay = false;
+      return console.log(`Let's try again, ${playerName}!`);
     }
-    counter += 1;
   }
-  // Check the winning condition
-  canPlay ? console.log(`Congratulations, ${playerName}!`) : console.log(`Let's try again, ${playerName}!`);
+  return console.log(`Congratulations, ${playerName}!`);
 };
