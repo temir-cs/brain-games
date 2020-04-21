@@ -6,12 +6,11 @@ import getRandomInteger from '../utils.js';
 // Game task
 const task = 'What is the result of the expression?';
 
-// Define the list of operators
+// List of math operators
 const operators = '+-*';
 
-// Perform arithmetic calculations with the given 2 numbers and operator
+// Perform arithmetic calculations with the given 2 numbers and selected operator
 const calculate = (number1, number2, operator) => {
-  // Get a correct answer based on selected operator
   switch (operator) {
     case '+':
       // Addition (+)
@@ -29,10 +28,10 @@ const calculate = (number1, number2, operator) => {
 
 // Generate data for 1 game round
 const getRoundData = () => {
-  // Get 2 random integers and randomly select and operator
+  // Get 2 random integers and randomly select an operator
   const number1 = getRandomInteger(0, 100);
   const number2 = getRandomInteger(0, 100);
-  const operator = operators[getRandomInteger(0, operators.length)];
+  const operator = operators[getRandomInteger(0, operators.length - 1)];
 
   // Define game question and correct answer for the current round
   const question = `${number1} ${operator} ${number2}`;

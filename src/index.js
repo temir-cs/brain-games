@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-expressions */
 import readlineSync from 'readline-sync';
 
+// Default number of rounds for each game
+const rounds = 3;
+
 // Gets user answer and converts its to program-readable type
 export const getUserAnswer = () => {
   // Prompt a player for answer
@@ -14,14 +17,13 @@ export const runEngine = (task, getRoundData) => {
   // Greet player and get playerName
   console.log('Welcome to the Brain Games!');
   const playerName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${playerName}!`);
+  console.log(`Hello, ${playerName}! Let's play a game!`);
 
   // Display game task
-  const gameTask = task;
-  console.log(gameTask);
+  console.log(task);
 
   // Play 3 rounds unless user does a mistake
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < rounds; i += 1) {
     // Get generated game question and correct answer for a current game
     const [question, correctAnswer] = getRoundData();
 
@@ -31,14 +33,15 @@ export const runEngine = (task, getRoundData) => {
     // Get user answer
     const userAnswer = getUserAnswer();
 
-    if (userAnswer === correctAnswer) {
-      // if answer is correct -> show success message
-      console.log('Correct!');
-    } else {
+    if (userAnswer !== correctAnswer) {
       // if answer is incorrect -> show fail message and stop
       console.log(`"${userAnswer}" was wrong answer, correct answer was "${correctAnswer}".`);
-      return console.log(`Let's try again, ${playerName}!`);
+      console.log(`Let's try again, ${playerName}!`);
+      return;
     }
+
+    // if answer is correct -> show success message
+    console.log('Correct!');
   }
-  return console.log(`Congratulations, ${playerName}!`);
+  console.log(`Congratulations, ${playerName}!`);
 };

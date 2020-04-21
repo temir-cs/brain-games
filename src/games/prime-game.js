@@ -15,9 +15,9 @@ const isPrime = (number) => {
   // Get a middle boundary for 'for' loop
   const middle = number / 2;
   // Iterate trough all smaller numbers beginning from 2 until middle boundary
-  for (let i = 2; i <= middle; i += 1) {
+  for (let divisor = 2; divisor <= middle; divisor += 1) {
     // if the given number has any divisor other than 1 and itself - then it's NOT prime
-    if (number % i === 0) {
+    if (number % divisor === 0) {
       return false;
     }
   }
