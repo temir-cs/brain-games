@@ -2,7 +2,7 @@
 import readlineSync from 'readline-sync';
 
 // Default number of rounds for each game
-const rounds = 3;
+const roundsCount = 3;
 
 // Gets user answer and converts its to program-readable type
 export const getUserAnswer = () => {
@@ -23,7 +23,7 @@ export const runEngine = (task, getRoundData) => {
   console.log(task);
 
   // Play 3 rounds unless user does a mistake
-  for (let i = 0; i < rounds; i += 1) {
+  for (let i = 0; i < roundsCount; i += 1) {
     // Get generated game question and correct answer for a current game
     const [question, correctAnswer] = getRoundData();
 
