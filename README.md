@@ -4,6 +4,7 @@
 
 
 # Brain Games
+a CLI bundle of simple, yet fun math games
 ## Identify even numbers
 [![asciicast](https://asciinema.org/a/b4DeKrIm0k0sf2Snoq9mzDxsp.svg)](https://asciinema.org/a/b4DeKrIm0k0sf2Snoq9mzDxsp)
 ## Calculator
